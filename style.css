@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Julius+Sans+One');
+
+
+/* use wrapper to center page elements, rather than body
+by wrapping the content inside the header and footer
+but not centering the header and footer elements themselves,
+we allow their background colors to fill the width of the page */
+.wrapper {
+    margin: 0 auto;
+    max-width: 60em;
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+
+    /* remove spacing from the edge of the page */
+    margin:0; 
+    padding:0;
+}
+
+.image-cropper {
+    float:left;
+    width: 200px;
+    height: 200px;
+    margin-right:1em;
+    margin-bottom:2.5em;
+    position: relative;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+img {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+}
+
+h1 { 
+    padding-top: 1em;
+    font: bold 3em 'Julius Sans One', sans-serif;
+}
+
+h2 {
+    font: bold 1.25em 'Julius Sans One', sans-serif;
+    margin: 0 0 1em;
+}   
+
+h3 {
+    font: 1em 'Julius Sans One', sans-serif;
+    margin: 0 0 1em;
+}   
+
+cite {
+    color:#a78873;
+}
+
+ul {
+    list-style-type: none;
+    padding:0;
+}
+
+nav ul li {
+    float:left;
+    margin:0 1em;
+}
+
+main { 
+   clear:left;
+}
+
+section{
+    margin-bottom:2.5em;
+    padding-left:1em;
+    padding-right:1em;
+
+}
+
+section ul li {
+    margin-bottom:1em;
+}
+
+nav ul li {
+    margin-bottom: 20px 
+}
+
+a.btn, a.fake_btn {
+    text-decoration: none;
+    font-weight:bold; 
+    color:#6f8db7; 
+    background:white;
+    border: 1px solid #6f8db7;
+    border-radius: 4px;
+    padding: 1px 10px; 
+    text-align: center;
+}
+
+a#current {
+    background:#6f8db7;
+    color:white;
+}
+
+a.btn:hover, a.btn:focus, a.btn:active {
+    background: #6f8db7;
+    color:white;
+}
+
+main a.btn{
+    font-size:0.75em;
+}
+
+header, footer, aside {
+    padding:1em;
+    background: #95a3b7;
+    color:white;
+    overflow: hidden;
+    margin:0;
+}
+
+header {
+    padding-bottom:0;
+}
+
+main {
+    padding-top:2em;
+}
+
+aside {
+    margin:1em;
+    margin-top:2em;
+}
+
+
+
+@media only screen and (min-width: 80em) {
+
+    main {
+        float: left;
+        width: 80%;
+    }
+
+    aside {
+        float: right;
+        width: 30%;
+    }
+
+    footer {
+        clear: left;
+    } 
+
+}
