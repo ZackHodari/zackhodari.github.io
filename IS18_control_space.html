@@ -9,9 +9,188 @@
 </head>
 <body>
 
-<div id="Title">
-    IS18 controllable SPSS
-</div>
+<h1>Learning interpretable control dimensions for speech synthesis by using external data</h1>
+<p>The following speech samples relate to a paper submitted for review at <a href=http://interspeech2018.org>INTERSPEECH 2018</a></p>
+
+
+<h2>Control of emotion</h2>
+<p>Here we set the control vector to one-hot vectors for each emotion</p>
+
+<table style="width:100%">
+  <tr>
+  	<th>Emotion</th>
+  </tr>
+
+  <tr>
+  	<td>Angry</td>
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/angry_1.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td>
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/angry_2.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td> 
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/angry_3.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td>
+  </tr>
+
+  <tr>
+  	<td>Happy</td>
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/happy_1.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td>
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/happy_2.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td> 
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/happy_3.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td>
+  </tr>
+
+  <tr>
+  	<td>Sad</td>
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/sad_1.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td>
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/sad_2.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td> 
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/sad_3.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td>
+  </tr>
+
+  <tr>
+  	<td>Neutral</td>
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/neutral_1.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td>
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/neutral_2.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td> 
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/neutral_3.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td>
+  </tr>
+</table>
+
+
+<h2>Paragraphs</h2>
+<p>We present 3 systems, for pairwise paragraph comparison</p>
+<ul>
+	<li>DNN-C: controllable SPSS voice, controlled by one of the authors using a simple UI</li>
+	<li>DNN-R: controllable SPPS voice, with random control values</li>
+	<li>DNN-B: baseline SPSS voice</li>
+</ul>
+
+<table style="width:100%">
+  <tr>
+  	<th>System</th>
+  </tr>
+
+  <tr>
+  	<td>DNN-C</td>
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/controlled_1.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td>
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/controlled_2.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td> 
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/controlled_3.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td>
+  </tr>
+
+  <tr>
+  	<td>DNN-R</td>
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/random_1.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td>
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/random_2.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td> 
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/random_3.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td>
+  </tr>
+
+  <tr>
+  	<td>DNN-B</td>
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/baseline_1.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td>
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/baseline_2.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td> 
+    <td>
+    	<audio controls="controls" style="width:400px" >
+			<source src="resources/audio/IS18_control_space/baseline_3.wav" type="audio/wav" />
+			Your browser does not support the audio element.
+		</audio>
+    </td>
+  </tr>
+</table>
+
 
 </body>
 </html>
