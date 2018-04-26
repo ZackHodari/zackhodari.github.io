@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html><head>
+<meta charset='UTF-8'>
+<link rel='stylesheet' type='text/css' href='day-one.css' /><link rel='stylesheet' type='text/css' href='day-one-html-override.css' /></head>
+<body id='body' dir='auto'>
+<h1>WaveNet Tutorial</h1>
+<p>These instructions are for convenience only, there is a lot more guidance available on the repository that will be helpful if you get stuck. Take a look at the <a href="https://github.com/r9y9/wavenet_vocoder/blob/master/README.md">README</a>, and the <a href="https://github.com/r9y9/wavenet_vocoder/issues">Issues</a> on r9y9’s <a href="https://github.com/r9y9/wavenet_vocoder">repo</a></p>
+<p>If you are having issues with memory limitations, it may be necessary to clip the length of the training samples, this can be done in <a href="https://github.com/r9y9/wavenet_vocoder/blob/master/hparams.py#L110">hparams.py</a> by reducing <code>max_time_steps</code></p>
+<br>
+<br>
+<h2>INSTALLATION</h2>
+<br>
+<pre><code># if miniconda is not installed, run the following
+# cd $HOME
+# wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+# bash Miniconda2-latest-Linux-x86_64.sh
+# 
+# or, if anaconda must be loaded (e.g. on a compute cluster)
+# module load python3/anaconda
+
+# change base_dir to the directory above where you want to place the repo
+base_dir=$HOME
+cd $base_dir
+
+git clone https://github.com/zackhodari/wavenet_vocoder
+cd wavenet_vocoder
+
+conda create --prefix=env/wavenet python=3.6 tensorflow-gpu=1.3.0 cudatoolkit=8 scipy matplotlib pytorch torchvision -c pytorch
+source activate env/wavenet
+pip install --upgrade pip
+pip install --no-cache-dir -e &quot;.[train]&quot;
+</code></pre>
+<br>
+<br>
+<h2>DATA</h2>
+<br>
+<pre><code>base_dir=$HOME
+mkdir -p $base_dir/data/cmu_arctic
+cd $base_dir/data/cmu_arctic
+speaker_links=&quot;\
+http://festvox.org/cmu_arctic/cmu_arctic/packed/cmu_us_awb_arctic-0.95-release.tar.bz2 \
+http://festvox.org/cmu_arctic/cmu_arctic/packed/cmu_us_bdl_arctic-0.95-release.tar.bz2 \
+http://festvox.org/cmu_arctic/cmu_arctic/packed/cmu_us_clb_arctic-0.95-release.tar.bz2 \
+http://festvox.org/cmu_arctic/cmu_arctic/packed/cmu_us_jmk_arctic-0.95-release.tar.bz2 \
+http://festvox.org/cmu_arctic/cmu_arctic/packed/cmu_us_ksp_arctic-0.95-release.tar.bz2 \
+http://festvox.org/cmu_arctic/cmu_arctic/packed/cmu_us_rms_arctic-0.95-release.tar.bz2 \
+http://festvox.org/cmu_arctic/cmu_arctic/packed/cmu_us_slt_arctic-0.95-release.tar.bz2&quot;
+
+for speaker_link in $speaker_links
+do
+    wget $speaker_link
+    tar xf $( basename $speaker_link )
+done
+rm -rf cmu_us_*_arctic/!(wav)
+</code></pre>
+<br>
+<br>
+<h2>USAGE</h2>
+<br>
+<pre><code>base_dir=$HOME
+cd $base_dir/wavenet_vocoder
+source activate wavenet
+export LD_LIBRARY_PATH=&quot;$base_dir/miniconda2/wavenet/lib:$LD_LIBRARY_PATH&quot;
+
+# preprocess the data, only run this once (unless you change parameter extraction)
+python preprocess.py \
+    cmu_arctic $base_dir/data/cmu_arctic ./data/cmu_arctic \
+    --preset=presets/cmu_arctic_8bit.json
+
+# settings, run this each time you want to create a new architecture setup
+python dump_hparams_to_json.py \
+    --preset=presets/cmu_arctic_8bit.json \
+    --hparams=&quot;cin_channels=80,gin_channels=-1&quot; \
+    checkpoints/slt_arctic/test/cmu_arctic_8bit.json
+
+# train
+python train.py \
+    --checkpoint-dir=./checkpoints/slt_arctic/test \
+    --data-root=./data/cmu_arctic/ \
+    --speaker-id=6 \
+    --preset=checkpoints/slt_arctic/test/cmu_arctic_8bit.json
+
+# generate, change the checkpoint file (.pth) and the data file (.npy) to synthesis other sentences
+python synthesis.py \
+    ./checkpoints/slt_arctic/test/checkpoint_step000100000.pth \
+    ./checkpoints/slt_arctic/test/gen/arctic_06799 \
+    --conditional=./data/cmu_arctic/cmu_arctic-mel-06799.npy \
+    --preset=checkpoints/slt_arctic/test/cmu_arctic_8bit.json
+    # add this for multi-speaker models
+    # --speaker-id=6
+</code></pre>
+<br>
+<br>
+<h2>RESULTS (16kHz)</h2>
+<br>
+<ul>
+<li>The following experiments are to provide you with a starting point to begin training a vocoder of a certain quality.</li>
+<li>All experiments were performed on Nvidia P100 16GB GPUs, so training time may increase for other systems.</li>
+<li><em>ema</em> refers to exponentially-weighted moving average, a method applied to the model parameters to provide more stable synthesis (<a href="https://arxiv.org/pdf/1712.05884.pdf">Tacotron 2</a>)</li>
+</ul>
+<table>
+<thead>
+<tr><th>Experiment</th><th>10k steps</th><th>Architecture</th><th>Context size</th><th>Memory</th><th>Comments</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Default</strong></td><td>2 hours</td><td>24 layers (6 stacks)</td><td>22.90ms</td><td>5.7GB (1.3GB syn)</td><td>300k (2.5 days) - very natural, slightly better than <strong>Minimal</strong>. Good enough at 100k (20 hours)
+<br>
+<audio controls="controls" style="width:350px" >
+    <source src="../resources/audio/wavenet_tutorial/default/arctic_06807.wav" type="audio/wav" />
+    Your browser does not support the audio element.
+</audio>
+<audio controls="controls" style="width:350px" >
+    <source src="../resources/audio/wavenet_tutorial/default/arctic_06808.wav" type="audio/wav" />
+    Your browser does not support the audio element.
+</audio>
+</td></tr>
+<tr><td><strong>Minimal</strong></td><td>45 mins</td><td>6 layers (1 stack)</td><td>5.76ms</td><td>2.1GB (1GB syn)</td><td>300-400k (1 day) - very natural. Bit shaky at 100k, good enough after 200k (15 hours)
+<br>
+<audio controls="controls" style="width:350px" >
+    <source src="../resources/audio/wavenet_tutorial/minimal/arctic_06807.wav" type="audio/wav" />
+    Your browser does not support the audio element.
+</audio>
+<audio controls="controls" style="width:350px" >
+    <source src="../resources/audio/wavenet_tutorial/minimal/arctic_06808.wav" type="audio/wav" />
+    Your browser does not support the audio element.
+</audio>
+</td></tr>
+<tr><td><strong>Development</strong></td><td>&lt;15 mins</td><td>2 layers (1 stack)</td><td>0.32ms</td><td>1.3GB (0.9GB syn)</td><td>100k (2.5 hours) - very buzzy, barely intelligible
+<br>
+<audio controls="controls" style="width:350px" >
+    <source src="../resources/audio/wavenet_tutorial/development/arctic_06807.wav" type="audio/wav" />
+    Your browser does not support the audio element.
+</audio>
+<audio controls="controls" style="width:350px" >
+    <source src="../resources/audio/wavenet_tutorial/development/arctic_06808.wav" type="audio/wav" />
+    Your browser does not support the audio element.
+</audio>
+</td></tr>
+<tr><td><strong>Multi-speaker</strong></td><td>2 hours</td><td>24 layers (6 stacks)</td><td>22.90ms</td><td>7.1GB (1.3GB syn)</td><td>300k_ema (2.5 days) - sounds good. No noticeable difference between normal and ema (at 500k)
+<br>
+<audio controls="controls" style="width:350px" >
+    <source src="../resources/audio/wavenet_tutorial/multi_speaker/arctic_06807_ema.wav" type="audio/wav" />
+    Your browser does not support the audio element.
+</audio>
+<audio controls="controls" style="width:350px" >
+    <source src="../resources/audio/wavenet_tutorial/multi_speaker/arctic_06808_ema.wav" type="audio/wav" />
+    Your browser does not support the audio element.
+</audio>
+</td></tr>
+</tbody>
+</table>
+</div>
+<script src='javascript.js'></script></body></html>
