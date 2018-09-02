@@ -7,6 +7,7 @@
     <head>
         <!-- Global Site Tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106538118-1"></script>
+        <!-- <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script> -->
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments)};
@@ -25,7 +26,7 @@
         <header>
             <div class = "wrapper">
                 <div class="image-cropper">
-                    <img src="headshot.jpg" class="rounded">
+                    <img src="headshot.tiff" class="rounded">
                 </div>
                 <h1>Zack Hodari</h1>
                 <nav>
@@ -33,58 +34,70 @@
                         <!-- <li><a class="btn" id="current" href="#"> Home </a></li> -->
                         <li><a class="btn" href="http://github.com/ZackHodari"> GitHub </a></li>
                         <li><a class="btn" href="http://linkedin.com/in/zackhodari"> LinkedIn </a></li>
-                        <li><a class="btn" href="CV.pdf"> CV.pdf </a></li>
+                        <li><a class="btn" href="documents/CV.pdf"> CV.pdf </a></li>
                         <!-- <li><a class="fake_btn"> zack.hodari [at] ed.ac.uk </a></li> -->
                     </ul>
                 </nav>
             </div>
         </header>
 
-        
+
         <div class="wrapper">
 
             <main>
 
-                <section>
+                <section id="about_me">
                     <h2> About Me </h2>
                     <p>
                         I am a PhD candidate at the <a href="http://datascience.inf.ed.ac.uk">Centre for Doctoral Training in Data Science</a> within Informatics at the University of Edinburgh. I am also affiliated with the <a href="http://www.cstr.ed.ac.uk">Centre for Speech Technology Research</a> and am supervised by <a href="http://homepages.inf.ed.ac.uk/simonk">Simon King</a>.
                     </p>
                     <p>
-                        The main problem I plan to focus on, during my PhD, is the ability to produce multiple waveforms given the same text, in particular to generate unique prosody. I will attempt this by addressing assumptions made in existing speech synthesis models, such that it is possible to create higher quality samples from these generative models. During my MScR, I focussed on emotion recognition and briefly investigated expressive speech synthesis.
+                        During my PhD, I plan to focus on the ability to produce multiple waveforms given the same text, in particular to generate unique prosody. I will attempt this by addressing assumptions made in existing speech synthesis models, such that it is possible to create higher quality samples from these generative models. During my MScR, I focussed on emotion recognition and briefly investigated expressive speech synthesis.
                     </p>
                 </section>
 
-                <section>
+                <section id="research">
                     <h2> Research </h2>
-                    <p>
-                        My MScR research focussed on learning a description of emotion, to improve upon issues with current labelling techniques. In addition, I evaluated the proposed technique using style adaptation for speech synthesis. <a class="btn" href="MScR_thesis_electronic.pdf">thesis.pdf</a>
+                    <p id="interspeech_2018_research">
+                        My paper titled <i>"Learning interpretable control dimensions for speech synthesis by using external data"</i> was published at <a href="http://interspeech2018.org">Interspeech 2018, Hyderabad, India</a> as an oral presentation. This work focused on the ability to create controllable systems which are interpretable by humans. We evaluated this system using 2 listening tests, which demonstrated that some aspects of the control mechanism were interpretable, and that listeners prefer speech generated with the correct variation over randomly varying speech. I also presented this work as a poster at <a href="http://kalman.mee.tcd.ie/ukspeech2018/">UK Speech 2018, Dublin, Ireland</a>, at an Amazon workshop in Berlin, and at the Google speech summit in London.</br>
+                        <a class="btn" href="documents/learning_interpretable_control.pdf">paper.pdf</a>
+                        <a class="btn" href="documents/Interspeech_2018_talk.pptx">slides.pptx</a>
+                        <a class="btn" href="documents/learning_interpretable_control_poster.pdf">poster.pdf</a>
                     </p>
-                    <p>
-                        I presented my MScR work at the <a href="http://mi.eng.cam.ac.uk/UKSpeech2017/">UK Speech conference</a> in Cambridge on the 11th and 12th of September. <a class="btn" href="UK_Speech_poster.pdf">poster.pdf</a>
-                    </p>
-                    <p>
-                        During my PhD, I plan to work more in the area of speech synthesis. In particular, I am interested in the idea of producing different waveforms from the same text, in particular to create unique prosody. To improve existing models, I plan to focus on assumptions made, such as conditional independence across time and between features. I am still in the early stages of my PhD, and am unsure exactly where my research will go.
+                    <p id="mscr_research">
+                        My MScR research focussed on learning a description of emotion, to improve upon issues with current labelling techniques. In addition, I evaluated the proposed technique using style adaptation for speech synthesis. I presented this work at <a href="http://mi.eng.cam.ac.uk/UKSpeech2017/">UK Speech 2017, Cambridge, UK</a> on the 11th and 12th of September.</br>
+                        <a class="btn" href="documents/MScR_thesis_electronic.pdf">thesis.pdf</a>
+                        <a class="btn" href="documents/UK_Speech_poster.pdf">poster.pdf</a>
                     </p>
                 </section>
 
-                <!-- 
-                <section>
+
+                <section id="publications">
                     <h2> Publications </h2>
                     <ul>
-                        
-                        <li>
-                            F. McJingles, C. Tibbles, and H. Marmaduke. <cite>Im in Ur Image Macro, Propagating Ur Infoz: Content-Based Prediction of Visual Meme Virality.</cite> In Proceedings of the 25th International Conference on World Wide Web. 2016. 11:9-20. <a class="btn" href="">pdf</a> <a class="btn" href="">bib</a> <a class="btn" href="">slides</a> </cite>
+
+                        <li id="interspeech_2018">
+                            Hodari, Z., Watts, O., Ronanki, S., King, S. (2018) <cite>Learning interpretable control dimensions for speech synthesis by using external data.</cite> In Proceedings of Interspeech, Hyderabad, India, 2018, pp. 32-36.</br>
+                            <a class="btn" href="https://www.isca-speech.org/archive/Interspeech_2018/abstracts/2075.html">bib.html</a>
+                            <a class="btn" href="https://www.isca-speech.org/archive/Interspeech_2018/pdfs/2075.pdf">paper.pdf</a>
+                            <a class="btn" href="documents/Interspeech_2018_talk.pptx">slides.pptx</a>
+                        <a class="btn" href="documents/learning_interpretable_control_poster.pdf">poster.pdf</a>
                         </li>
                         
+                        <li id="uk_speech_2017">
+                            Hodari, Z., King, S. (2017) <cite>A learned emotion space for emotion recognition and emotive speech synthesis.</cite> UK Speech, Cambridge, UK, 2017, pp. 32-36.</br>
+                            <a class="btn" href="http://mi.eng.cam.ac.uk/UKSpeech2017/poster2.html">bib.html</a>
+                            <a class="btn" href="http://mi.eng.cam.ac.uk/UKSpeech2017/posters/z_hodari_poster.pdf">poster.pdf</a>
+                        </li>
+
                     </ul>
                 </section>
-                -->
 
-                <section>
+
+                <section id="personal">
                     <h2>Personal</h2>
                     <p>
-                        When I'm not staring at a computer screen, I enjoy juggling and bouldering. I also love to cook, and am an avid whisky drinker.
+                        When I'm not staring at a computer screen, I enjoy juggling and bouldering. I also love to travel, cook, and drink whisky.
                     </p>
                 </section>
 
@@ -93,16 +106,31 @@
         </div>
 
         <footer>
-            <div class = "wrapper">
-                <h2>Contact</h2>    
-                <p>zack.hodari [at] ed.ac.uk</p>
-                <p>
-                    Office 3.25 <br />
-                    Informatics Forum <br />
-                    10 Crichton St <br />
-                    Edinburgh <br />
-                    EH8 9AB <br />
-                </p>
+            <div class="wrapper">
+                <section>
+                <div class="wrapper-left">
+                    <h2>Contact</h2>
+                    <p>zack.hodari [at] ed.ac.uk</p>
+                    <p>
+                        Office 3.25 <br />
+                        Informatics Forum <br />
+                        10 Crichton St <br />
+                        Edinburgh <br />
+                        EH8 9AB <br />
+                    </p>
+                </div>
+
+                <!--
+                <div class="wrapper-right">
+                    <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="dark" data-vanity="zackhodari">
+                        <a class="LI-simple-link" href='https://uk.linkedin.com/in/zackhodari?trk=profile-badge'>Zack Hodari</a>
+                    </div>
+                    <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="zackhodari">
+                        <a class="LI-simple-link" href='https://uk.linkedin.com/in/zackhodari?trk=profile-badge'>Zack Hodari</a>
+                    </div>
+                </div>
+                -->
+                </section>
             </div>
         </footer>
 
