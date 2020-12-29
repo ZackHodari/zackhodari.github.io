@@ -52,20 +52,21 @@
                         I am a PhD candidate at the <a href="http://datascience.inf.ed.ac.uk">Centre for Doctoral Training in Data Science</a> within Informatics at the University of Edinburgh. I am also affiliated with the <a href="http://www.cstr.ed.ac.uk">Centre for Speech Technology Research</a> and am supervised by <a href="http://homepages.inf.ed.ac.uk/simonk">Simon King</a>.
                     </p>
                     <p>
-                        In my PhD, I focus on prosody control. During my MScR, I focussed on emotion recognition and briefly investigated expressive speech synthesis.
+                        In my PhD, I focus on prosody control and prosody modelling. During my MScR, I focussed on emotion recognition and expressive speech synthesis.
                     </p>
                 </section>
 
+
                 <section id="research">
                     <h2> Research </h2>
-                    <p id="interspeech_2018_research">
-                        My paper titled <i>"Learning interpretable control dimensions for speech synthesis by using external data"</i> was published at <a href="http://interspeech2018.org">Interspeech 2018, Hyderabad, India</a> as an oral presentation. This work focused on the ability to create controllable systems which are interpretable by humans. We evaluated this system using 2 listening tests, which demonstrated that some aspects of the control mechanism were interpretable, and that listeners prefer speech generated with the correct variation over randomly varying speech. I also presented this work as a poster at <a href="http://kalman.mee.tcd.ie/ukspeech2018/">UK Speech 2018, Dublin, Ireland</a>, at an Amazon workshop in Berlin, and at the Google speech summit in London.</br>
-                        <a class="btn" href="documents/learning_interpretable_control.pdf">paper.pdf</a>
-                        <a class="btn" href="documents/Interspeech_2018_talk.pptx">slides.pptx</a>
-                        <a class="btn" href="documents/learning_interpretable_control_poster.pdf">poster.pdf</a>
+
+                    <p id="pdh_research">
+                        My PhD research focussed on three areas relating to prosody in speech synthesis; control of prosody, interpretability of learnt prosody representations, and the use of additional context to determine appropriate prosody. Context refers to information used by humans when planning prosody, this may include prosodically-relevant features, or using units longer than a sentence when training. Together these three directions move towards more natural prosody, either through human-in-the-loop control, or using additional context to automatically control the prosody. The broad claim of my thesis is that speech synthesis uses insufficient prosody context, and that ignoring this will lead to worse prosody. The following slides are from my draft dissertation defence, I am currently completing my thesis.</br>
+                        <a class="btn" href="https://docs.google.com/presentation/d/1rJGqMNe-fyOyjYceUlQOUXZ4ra014-5Fs-Tokp1XH7A/edit?usp=sharing">slides.google</a>
                     </p>
+
                     <p id="mscr_research">
-                        My MScR research focussed on learning a description of emotion, to improve upon issues with current labelling techniques. In addition, I evaluated the proposed technique using style adaptation for speech synthesis. I presented this work at <a href="http://mi.eng.cam.ac.uk/UKSpeech2017/">UK Speech 2017, Cambridge, UK</a> on the 11th and 12th of September.</br>
+                        My MScR research focussed on learning a description of emotion, to improve upon issues with current labelling techniques. In addition, I evaluated the proposed technique using style adaptation for speech synthesis. I presented this work at <a href="http://mi.eng.cam.ac.uk/UKSpeech2017/">UK Speech 2017, Cambridge, UK</a>.</br>
                         <a class="btn" href="documents/MScR_thesis_electronic.pdf">thesis.pdf</a>
                         <a class="btn" href="documents/UK_Speech_poster.pdf">poster.pdf</a>
                     </p>
@@ -76,18 +77,55 @@
                     <h2> Publications </h2>
                     <ul>
 
+                        <li id="icassp_2021_kathaka">
+                            S. Karlapati, A. Abbas, <b>Z. Hodari</b>, A. Moinet, A. Joly, P. Karanasou, T. Drugman, (2020) <cite>Prosodic Representation Learning and Contextual Sampling for Neural Text-to-Speech.</cite></br>
+                            <a class="btn" href="https://arxiv.org/abs/2011.02252">arxiv.html</a>
+                            <a class="btn" href="https://arxiv.org/pdf/2011.02252.pdf">paper.pdf</a>
+                        </li>
+
+                        <li id="icassp_2021_CAMP">
+                            <b>Z. Hodari</b>, A. Moinet, S. Karlapati, J. Lorenzo-Trueba, T. Merritt, A. Joly, A. Abbas, P. Karanasou, and T. Drugman, (2020) <cite>CAMP: a two-stage approach to modelling prosody in context.</cite></br>
+                            <a class="btn" href="https://arxiv.org/abs/2011.01175">arxiv.html</a>
+                            <a class="btn" href="https://arxiv.org/pdf/2011.01175.pdf">paper.pdf</a>
+                            <a class="btn" href="documents/ICASSP21_slides.pptx">slides.pptx</a>
+                        </li>
+
+                        <li id="sp_2020">
+                            <b>Z. Hodari</b>, C. Lai, and S. King, (2020) <cite>Perception of prosodic variation for speech synthesis using an unsupervised discrete representation of F0.</cite> In Proceedings of Speech Prosody, Tokyo, Japan, 2020, pp. 965-969.</br>
+                            <a class="btn" href="https://www.isca-speech.org/archive/SpeechProsody_2020/abstracts/235.html">bib.html</a>
+                            <a class="btn" href="https://www.isca-speech.org/archive/SpeechProsody_2020/pdfs/235.pdf">paper.pdf</a>
+                            <a class="btn" href="https://docs.google.com/presentation/d/1jtn-BlkaaJ9VTpNnEJ7xTIQbbNsVS9QXqubkVOeC59A/edit?usp=sharing">slides.google</a>
+                            <a class="btn" href="documents/SP20_video.mp4">video.mp4</a>
+                        </li>
+
+                        <li id="ssw_2019">
+                            <b>Z. Hodari</b>, O. Watts, and S. King, (2019) <cite>Using generative modelling to produce varied intonation for speech synthesis.</cite> In Proceedings of Speech Synthesis Workshop, Vienna, Austria, 2019, pp. 239-244.</br>
+                            This work was also presented at UK Speech, Birmingham, UK, 2019.</br>
+                            <a class="btn" href="https://www.isca-speech.org/archive/SSW_2019/abstracts/SSW10_P_3-3.html">bib.html</a>
+                            <a class="btn" href="https://www.isca-speech.org/archive/SSW_2019/pdfs/SSW10_P_3-3.pdf">paper.pdf</a>
+                            <a class="btn" href="https://docs.google.com/presentation/d/1-Xm0MyIj0TP128MuH_CUrQPker99M0EOueJSwYNJOPg/edit?usp=sharing">slides.google</a>
+                            <a class="btn" href="documents/SSW19_poster.pdf">poster.pdf</a>
+                        </li>
+
+                        <li id="interspeech_2019">
+                            J. Fong, P. O. Gallegos, <b>Z. Hodari</b>, S. King, (2019) <cite>Investigating the robustness of sequence-to-sequence text-to-speech models to imperfectly-transcribed training data.</cite> In Proceedings of Interspeech, Graz, Austria, 2019, pp. 1546-1550.</br>
+                            <a class="btn" href="https://www.isca-speech.org/archive/Interspeech_2019/abstracts/1824.html">bib.html</a>
+                            <a class="btn" href="https://www.isca-speech.org/archive/Interspeech_2019/pdfs/1824.pdf">paper.pdf</a>
+                            <a class="btn" href="documents/IS19_poster.pdf">poster.pdf</a>
+                        </li>
+
                         <li id="interspeech_2018">
-                            Hodari, Z., Watts, O., Ronanki, S., King, S. (2018) <cite>Learning interpretable control dimensions for speech synthesis by using external data.</cite> In Proceedings of Interspeech, Hyderabad, India, 2018, pp. 32-36.</br>
+                            <b>Z. Hodari</b>, O. Watts, S. Ronanki, S. King, (2018) <cite>Learning interpretable control dimensions for speech synthesis by using external data.</cite> In Proceedings of Interspeech, Hyderabad, India, 2018, pp. 32-36.</br>
                             <a class="btn" href="https://www.isca-speech.org/archive/Interspeech_2018/abstracts/2075.html">bib.html</a>
                             <a class="btn" href="https://www.isca-speech.org/archive/Interspeech_2018/pdfs/2075.pdf">paper.pdf</a>
-                            <a class="btn" href="documents/Interspeech_2018_talk.pptx">slides.pptx</a>
-                        <a class="btn" href="documents/learning_interpretable_control_poster.pdf">poster.pdf</a>
+                            <a class="btn" href="documents/IS18_slides.pptx">slides.pptx</a>
+                            <a class="btn" href="documents/IS18_poster.pdf">poster.pdf</a>
                         </li>
                         
                         <li id="uk_speech_2017">
-                            Hodari, Z., King, S. (2017) <cite>A learned emotion space for emotion recognition and emotive speech synthesis.</cite> UK Speech, Cambridge, UK, 2017, pp. 32-36.</br>
+                            <b>Z. Hodari</b>, S. King, (2017) <cite>A learned emotion space for emotion recognition and emotive speech synthesis.</cite> In Proceedings of UK Speech, Cambridge, UK, 2017.</br>
                             <a class="btn" href="http://mi.eng.cam.ac.uk/UKSpeech2017/poster2.html">bib.html</a>
-                            <a class="btn" href="http://mi.eng.cam.ac.uk/UKSpeech2017/posters/z_hodari_poster.pdf">poster.pdf</a>
+                            <a class="btn" href="documents/UK_Speech_poster.pdf">poster.pdf</a>
                         </li>
 
                     </ul>
@@ -95,8 +133,25 @@
 
 
                 <section id="talks">
-                    <h2> Talks </h2>
+                    <h2>Teaching and talks</h2>
                     <ul>
+
+                        <li id="Papercup_talk_2020">
+                            I gave an invited talk at <a href="https://www.papercup.com">Papercup</a> on the use of multi-modal latent spaces combined with prosodic phrasing to learn interpretable prosodic representations. This was based on my work published at Speech Prosody 2020.</br>
+                            <a class="btn" href="https://docs.google.com/presentation/d/1jtn-BlkaaJ9VTpNnEJ7xTIQbbNsVS9QXqubkVOeC59A/edit?usp=sharing">slides.google</a>
+                        </li>
+
+                        <li id="PMR_notes">
+                            As the teaching assistant for <a href="http://www.inf.ed.ac.uk/teaching/courses/pmr">Probabilistic Modelling and Reasoning</a> (PMR), I created course notes to supplement the course material. PMR is a masters-level course on graphical models at The University of Edinburgh.</br>
+                            <a class="btn" href="documents/PMR_notes/notes-01.pdf">notes-01.pdf</a>
+                            <a class="btn" href="documents/PMR_notes/notes-02.pdf">notes-02.pdf</a>
+                            <a class="btn" href="documents/PMR_notes/notes-03.pdf">notes-03.pdf</a>
+                            <a class="btn" href="documents/PMR_notes/notes-04.pdf">notes-04.pdf</a></br>
+                            <a class="btn" href="documents/PMR_notes/notes-05.pdf">notes-05.pdf</a>
+                            <a class="btn" href="documents/PMR_notes/notes-06.pdf">notes-06.pdf</a>
+                            <a class="btn" href="documents/PMR_notes/notes-07.pdf">notes-07.pdf</a>
+                            <a class="btn" href="documents/PMR_notes/notes-08.pdf">notes-08.pdf</a>
+                        </li>
 
                         <li id="convolutions_tutorial">
                             I gave a teaching talk for speech and language processing MSc students at The University of Edinburgh. The talk mainly focussed on convolutions, detailing different variations of convolutions. It also briefly covered multilayer perceptrons and recurrent models.</br>
@@ -111,7 +166,7 @@
                 <section id="personal">
                     <h2>Personal</h2>
                     <p>
-                        When I'm not staring at a computer screen, I enjoy board games and juggling. I also love to travel, cook, and drink whisky.
+                        When I'm not staring at a computer screen, I enjoy board games, cooking, baking, juggling, travelling, and whisky.
                     </p>
                 </section>
 
